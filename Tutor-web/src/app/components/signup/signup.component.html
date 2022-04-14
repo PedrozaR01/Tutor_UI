@@ -1,0 +1,59 @@
+<div class="card my-5">
+    <div class="card-body">
+      <form  #singupForm="ngForm">
+        
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="text" 
+              class="form-control" 
+              placeholder="Enter your email address"
+              >
+            
+          </div>
+
+          <div class="form-group">
+            <label for="email">Password</label>
+            <input type="text" 
+              class="form-control" 
+              placeholder="Enter your password">
+            
+          </div>
+
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" 
+            class="form-control" 
+            id="name" 
+            name="name" 
+            placeholder="Enter your name">
+            
+        </div>
+
+        <div class="form-group">
+            <label for="lastname">Last Name</label>
+            <input type="text"  
+              class="form-control" 
+              id="lastname" 
+              name="lastname" 
+              placeholder="Enter your last name">
+          
+      </div>
+
+        <div class="form-group">
+            <label for="zipcode">Zip Code</label>
+            <input type="text" 
+            class="form-control" 
+            id="zipcode" 
+            name="zipcode" 
+            placeholder="Enter your zip code">
+        
+        </div>
+    
+
+        <button type="submit" [disabled]="!singupForm.form.valid" 
+          class="btn btn-info">Submit</button>
+  
+  </form>
+        </div>
+</div>
+  
