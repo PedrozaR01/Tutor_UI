@@ -4,13 +4,29 @@
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
+
+    <div class="card my-5">
+      <div class="search-container">
+          <form class="search-form">
+              <input 
+              class="search-input"
+              name="search"
+              ngModel
+              placeholder="Search for a Tutor"
+              >
+              <button class="search-button">Search</button>
+          </form>
+      </div>
+  </div>
+  
+
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item active">
           <a class="nav-link" href="#">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Find a Tutor</a>
+          <a class="nav-link" routerLink="/search">Find a Tutor</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" routerLink="/signup">Sign Up</a>
@@ -33,5 +49,5 @@
     <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Log in</a></li>
     <!--<li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About</a></li>-->
   </ul>
-  <p class="text-center text-muted">© 2021 Company, Inc</p>
+  <p class="text-center text-muted">© 2022 Tutoring Page</p>
 </footer>
