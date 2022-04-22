@@ -1,0 +1,95 @@
+.filter {
+    max-width: 1200px;
+    margin: 10px auto;
+    padding-top: 5px;
+    padding-left: 5px;
+}
+
+::ng-deep {
+    .mat-form-field-infix {
+        background-color: #ebebeb;
+        border-color: #fff;
+        border-top: none;
+        padding-left: 5px;
+    }
+
+    .mat-select-value,
+    .mat-select-arrow,
+    .mat-form-field-hide-placeholder .mat-select-placeholder,
+    .mat-form-field-appearance-legacy .mat-form-field-label {
+        color: black;
+        opacity: 1;
+    }
+
+    .mat-form-field-appearance-legacy .mat-form-field-label {
+        padding-left: 5px;
+
+    }
+
+}
+
+.tutors {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 1200px;
+    margin: 20px auto;
+}
+
+.tutor {
+    width: 70vh;
+    margin: 10px;
+    height: 330px;
+    overflow: hidden;
+    border-radius: 5px;
+    background-color: white;
+    box-shadow: 4px 3px 8px 0px #3f51b5;
+    transition-duration: 0.3s;
+    cursor: pointer;
+
+    &:hover {
+        box-shadow: 4px 3px 11px 6px #3f51b5;
+        transform: translateY(-3px);
+    }
+
+    &-image {
+        background-color: #7c48c3;
+        position: relative;
+        height: 172px;
+        color: #fff;
+        text-align: center;
+    }
+
+    &-img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        height: 172px;
+    }
+
+    &-info {
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        height: 157px;
+    }
+
+    &-name {
+        color: #000;
+        font-weight: 700;
+        font-size: 22px;
+        margin-bottom: 20px;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+
+    &-topic {
+        display: flex;
+    }
+
+
+}
