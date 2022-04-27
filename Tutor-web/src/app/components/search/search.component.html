@@ -14,71 +14,22 @@
 </div>
 
 <div class="tutors">
-    <div class="tutor">
+    
+    <div class="tutor" *ngFor="let tutor of tutors">
         <div class="tutor-image">
-            <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmedia.istockphoto.com%2Fvectors%2Fmathematics-background-vector-id893456304&f=1&nofb=1" 
+            <img src="{{ tutor.tutorImg }}" 
             alt="math-stock-image" 
             class="tutor-img">
         </div>
         <div class="tutor-info">
             <div class="tutor-name">
-                <p>Math</p>
+                <p>{{ tutor.firstName }} {{ tutor.lastName }}</p>
             </div>
             <div class="tutor-description">
-                <p>Math classes for free</p>
+                <p>{{ tutor.intro }}</p>
             </div>
-            <div class="tutor-topic">Math, Elementary</div>
+            <div class="tutor-topic">{{ tutor.subjectTitle }}</div>
         </div>
     </div>
 
-    <div class="tutor">
-        <div class="tutor-image">
-            <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.IrHHY2V2wQGyUlE9JprSawHaK6%26pid%3DApi&f=1" 
-            alt="math-stock-image" 
-            class="tutor-img">
-        </div>
-        <div class="tutor-info">
-            <div class="tutor-name">
-                <p>Tutor Name</p>
-            </div>
-            <div class="tutor-description">
-                <p>Tutor Intro</p>
-            </div>
-            <div class="tutor-topic">Subject</div>
-        </div>
-    </div>
-
-    <div class="tutor">
-        <div class="tutor-image">
-            <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.explicit.bing.net%2Fth%3Fid%3DOIP.xFx7kCN6K_bthe7W7TepwAHaKK%26pid%3DApi&f=1" 
-            alt="math-stock-image" 
-            class="tutor-img">
-        </div>
-        <div class="tutor-info">
-            <div class="tutor-name">
-                <p>Tutor Name</p>
-            </div>
-            <div class="tutor-description">
-                <p>Tutor Intro</p>
-            </div>
-            <div class="tutor-topic">Subject</div>
-        </div>
-    </div>
-
-    <div class="tutor">
-        <div class="tutor-image">
-            <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.explicit.bing.net%2Fth%3Fid%3DOIP.AxNUv2mE77KwLpNLWvpx2gHaIu%26pid%3DApi&f=1" 
-            alt="math-stock-image" 
-            class="tutor-img">
-        </div>
-        <div class="tutor-info">
-            <div class="tutor-name">
-                <p>Tutor Name</p>
-            </div>
-            <div class="tutor-description">
-                <p>Tutor Intro</p>
-            </div>
-            <div class="tutor-topic">Subject</div>
-        </div>
-    </div>
 </div>

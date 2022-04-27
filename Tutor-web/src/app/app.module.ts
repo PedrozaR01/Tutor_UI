@@ -15,6 +15,8 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { HeaderComponent } from './components/header/header.component';
 import { HomeComponent } from './components/home/home.component';
+import { TutorJoin } from './models/tutor-join';
+import { JoinService } from './services/join.service';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,7 @@ import { HomeComponent } from './components/home/home.component';
     MatSelectModule,
     MatTabsModule
   ],
-  providers: [],
+  providers: [JoinService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

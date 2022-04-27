@@ -39,8 +39,8 @@
 .tutor {
     width: 70vh;
     margin: 10px;
-    height: 330px;
-    overflow: hidden;
+    height: 400px;
+    //overflow: hidden;
     border-radius: 5px;
     background-color: white;
     box-shadow: 4px 3px 8px 0px #3f51b5;
@@ -55,7 +55,7 @@
     &-image {
         background-color: #7c48c3;
         position: relative;
-        height: 172px;
+        height: 30vh;
         color: #fff;
         text-align: center;
     }
@@ -66,7 +66,7 @@
         left: 0;
         right: 0;
         margin: 0 auto;
-        height: 172px;
+        height: 30vh;
     }
 
     &-info {
@@ -74,21 +74,28 @@
         display: flex;
         flex-direction: column;
         justify-content: flex-end;
-        height: 157px;
+        height: 165px;
     }
 
     &-name {
+        position: relative;
         color: #000;
         font-weight: 700;
         font-size: 22px;
-        margin-bottom: 20px;
-        white-space: nowrap;
-        text-overflow: ellipsis;
-        overflow: hidden;
+        margin-top: 40px;
+        top: 0;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+    }
+
+    &-description {
     }
 
     &-topic {
-        display: flex;
+        color: #000;
+        font-weight: 700;
+        font-size: 22px;
     }
 
 
