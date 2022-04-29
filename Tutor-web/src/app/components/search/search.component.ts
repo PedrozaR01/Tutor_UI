@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TutorJoin } from 'src/app/models/tutor-join';
 import { JoinService } from 'src/app/services/join.service';
+import { TutorPipe } from 'src/app/pipes/tutor.pipe';
 
 @Component({
   selector: 'app-search',
@@ -11,7 +12,7 @@ import { JoinService } from 'src/app/services/join.service';
 export class SearchComponent implements OnInit {
 
   tutors!: TutorJoin[];
-  search : String ="";
+  filter : String ="";
   public sort!: string;
 
   constructor(

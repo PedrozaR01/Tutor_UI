@@ -31,13 +31,13 @@
 .tutors {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: left;
     max-width: 1200px;
     margin: 20px auto;
 }
 
 .tutor {
-    width: 70vh;
+    width: 500px;
     margin: 10px;
     height: 400px;
     //overflow: hidden;

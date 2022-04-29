@@ -17,6 +17,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { HomeComponent } from './components/home/home.component';
 import { TutorJoin } from './models/tutor-join';
 import { JoinService } from './services/join.service';
+import { TutorPipe } from './pipes/tutor.pipe';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { JoinService } from './services/join.service';
     SignupComponent,
     SearchComponent,
     HeaderComponent,
-    HomeComponent
+    HomeComponent,
+    TutorPipe
   ],
   imports: [
     BrowserModule,

@@ -1,21 +1,23 @@
-<div class="filter">
+<!--<div class="filter">
     <mat-form-field>
-        <mat-label>Sort</mat-label>
-        <mat-select panelClass="sort-select" [(ngModel)]="sort">
-            <mat-option value="Name">Math </mat-option>
-            <mat-option value="Name">History </mat-option>
-            <mat-option value="Name">Music </mat-option>
-            <mat-option value="Name">P.E. </mat-option>
-            <mat-option value="Name"> </mat-option>
+        <mat-label>Select subject</mat-label>
+        <mat-select panelClass="sort-select" [(ngModel)]="filter">
+            <mat-option value="Math">Math </mat-option>
+            <mat-option value="History">History </mat-option>
+            <mat-option value="Music">Music </mat-option>
+            <mat-option value="Physical Education">P.E. </mat-option>
+            <mat-option value="Science">Science </mat-option>
+            <mat-option value="Programming">Programming </mat-option>
         
         </mat-select>
     
     </mat-form-field>
-</div>
+</div>-->
+<input type="text" class="form-control mb4" placeholder="Search" [(ngModel)]="filter">
 
 <div class="tutors">
     
-    <div class="tutor" *ngFor="let tutor of tutors">
+    <div class="tutor" *ngFor="let tutor of tutors | tutorFilter: filter">
         <div class="tutor-image">
             <img src="{{ tutor.tutorImg }}" 
             alt="math-stock-image" 
