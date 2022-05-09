@@ -9,7 +9,7 @@ export class JoinService {
   private TutorURL: string;
 
   constructor(private http: HttpClient) {
-    this.TutorURL = 'http://localhost:8080/tutorsubject';
+    this.TutorURL = 'http://localhost:8080/tutors';
    }
 
    list(): Observable<any>{
