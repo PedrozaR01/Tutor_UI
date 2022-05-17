@@ -19,7 +19,7 @@
 
 <div class="tutors">
     
-    <div class="tutor" *ngFor="let tutor of tutors | tutorFilter: filter">
+    <div class="tutor" *ngFor="let tutor of tutors | tutorFilter: filter" >
         <div class="tutor-image">
             <img src="{{ tutor.tutorImg }}" 
             alt="math-stock-image" 
@@ -32,7 +32,7 @@
             <div class="tutor-description">
                 <p>{{ tutor.intro }}</p>
             </div>
-            <div class="tutor-topic">{{ tutor.subjectTitle }}</div>
+            <div class="tutor-topic"><a routerLink="/appointment/{{ tutor.tutorId }}">Make an appointment</a>&nbsp;</div>
         </div>
     </div>
 

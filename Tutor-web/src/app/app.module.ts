@@ -18,6 +18,25 @@ import { HomeComponent } from './components/home/home.component';
 import { TutorJoin } from './models/tutor-join';
 import { JoinService } from './services/join.service';
 import { TutorPipe } from './pipes/tutor.pipe';
+import { AppointmentListComponent } from './components/appointment-list/appointment-list/appointment-list.component';
+import {MatTableModule} from '@angular/material/table';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatInputModule} from '@angular/material/input';
+import {MatButtonModule} from '@angular/material/button';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+//import {MatNativeDateModule} from '@angular/material/native-date';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import { MatNativeDateModule } from '@angular/material/core';
+import { AppointmentComponent } from './components/appointment/appointment.component';
+import {
+  NgxMatDateFormats,
+  NgxMatDatetimePickerModule,
+  NgxMatNativeDateModule,
+  NgxMatTimepickerModule,
+  NGX_MAT_DATE_FORMATS
+} from '@angular-material-components/datetime-picker';
+
+
 
 @NgModule({
   declarations: [
@@ -26,7 +45,9 @@ import { TutorPipe } from './pipes/tutor.pipe';
     SearchComponent,
     HeaderComponent,
     HomeComponent,
-    TutorPipe
+    TutorPipe,
+    AppointmentListComponent,
+    AppointmentComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +59,17 @@ import { TutorPipe } from './pipes/tutor.pipe';
     MatFormFieldModule,
     HttpClientModule,
     MatSelectModule,
-    MatTabsModule
+    MatTabsModule,
+    MatTableModule,
+    MatProgressSpinnerModule,
+    MatInputModule,
+    MatButtonModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatToolbarModule,
+    NgxMatDatetimePickerModule,
+    NgxMatTimepickerModule,
+    NgxMatNativeDateModule,
   ],
   providers: [JoinService],
   bootstrap: [AppComponent]
