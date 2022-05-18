@@ -8,18 +8,18 @@ import { Appointment } from '../models/Appointment';
 })
 export class AppointmentService {
 
-  private URL = "http://localhost:8080";
+  private URL = "http://localhost:8080/appointments";
   constructor(private http: HttpClient) { }
 
   getAppointments(): Observable<Appointment[]> {
-    return this.http.get<Appointment[]>(`${this.URL}/appointments`);
+    return this.http.get<Appointment[]>(`${this.URL}`);
   }
 
-  createAppointment(appointmentDate: string, name: string, email: string, tutorid: string): Observable<Appointment> {
-    return this.http.post<Appointment>(`${this.URL}/appointments`, { appointmentDate, name, email, tutorid });
+  createAppointment(data: Appointment): Observable<any> {
+    return this.http.post(this.URL, data);
   }
 
   cancelAppointment(id: string): Observable<any> {
-    return this.http.delete(`${this.URL}/appointments/${id}`);
+    return this.http.delete(`${this.URL}/${id}`);
   }
 }

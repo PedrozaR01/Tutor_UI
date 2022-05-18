@@ -6,6 +6,7 @@ import { Appointment } from 'src/app/models/Appointment';
 import { AppointmentService } from 'src/app/services/appointment.service';
 import { TutorJoin } from 'src/app/models/tutor-join';
 import { JoinService } from 'src/app/services/join.service';
+import { mergeMap } from 'rxjs';
 
 export const CUSTOM_DATE_FORMATS = {
   parse: {
@@ -29,44 +30,84 @@ export const CUSTOM_DATE_FORMATS = {
 })
 export class AppointmentComponent implements OnInit {
 @Input() tutor: TutorJoin = {
-  tutorId: '', firstName: '', lastName: '', intro: '', tutorImg: '', subjectId: '', subjectTitle: ''}
+  tutor_id: '', firstName: '', lastName: '', intro: '', tutorImg: '', subjects: []}
   
 public successMsg!: string;
   public errorMsg!: string;
+  appointment: Appointment;
   appointmentDate!: string;
-  name!: string;
-  email!: string;
+  tutorid!: number;
+  public loading = true;
+  public errorMsgT!: string;
+  public successMsgT!: string;
+  public appointments!: Appointment[];
+  public filtAppointments!: Appointment[];
+  public columns = ['appointmentDate', 'name', 'email', 'cancel'];
 
   constructor(
     private appointmentService: AppointmentService,
     private joinService: JoinService,
     private route: ActivatedRoute,
     private router: Router
-    ) { }
+    ) {
+      this.appointment = new Appointment();
+     }
 
   ngOnInit() {
     this.getTutor();
+    this.appointmentService.getAppointments()
+    .subscribe((appointments: Appointment[]) => {
+      this.appointments = appointments;
+      this.loading = false;
+    },
+    (error: ErrorEvent) => {
+      this.errorMsg = error.error.message;
+      this.loading = false;
+    });
+    this.tutorid = Number(this.tutor.tutor_id);
+    console.log(typeof(this.appointments));
+    this.filtAppointments = this.appointments.filter(appointment => appointment.tutorId == this.tutorid );
+    console.log(this.filtAppointments);
   }
 
   getTutor(): void{
     const id = this.route.snapshot.paramMap.get('id') || '';
-    this.joinService.get(id).subscribe( tutor => this.tutor = tutor);
-    console.log( this.tutor.tutorId );
+    this.joinService.get(id).subscribe( tutor => {
+      this.tutor = tutor;
+      console.log( this.tutor );
+    });
+    
   }
 
   createAppointment() {
     this.successMsg = '';
     this.errorMsg = '';
-    const date = new Date(this.appointmentDate)
+    const date = new Date(this.appointmentDate);
+    date.setHours(date.getHours()-6);
     const isoString: string = date.toISOString();
     const isoDate = new Date(isoString);
     const mySqlDate = isoDate.toJSON().slice(0, 19).replace('T', ' ');
-    this.appointmentService.createAppointment(mySqlDate, this.name, this.email, this.tutor.tutorId)
+    this.appointment.appointmentDate = mySqlDate;
+    this.appointment.tutorId = Number(this.tutor.tutor_id);
+
+    this.appointmentService.createAppointment(this.appointment)
       .subscribe((createdAppointment: Appointment) => {
         this.appointmentDate = '';
-        this.name = '';
-        this.email = '';
-        this.successMsg = `Appointment Booked Successfully for ${isoString}`;
+        this.successMsg = `Appointment Booked Successfully for ${isoString} with ${this.tutor.firstName}`;
+      },
+      (error: ErrorEvent) => {
+        this.errorMsg = error.error.message;
+      });
+  }
+
+  cancelAppointment(id: string) {
+    this.appointmentService.cancelAppointment(id)
+      .pipe(
+        mergeMap(() => this.appointmentService.getAppointments())
+      )
+      .subscribe((appointments: Appointment[]) => {
+        this.appointments = appointments;
+        this.successMsg = 'Successfully cancelled appointment';
       },
       (error: ErrorEvent) => {
         this.errorMsg = error.error.message;

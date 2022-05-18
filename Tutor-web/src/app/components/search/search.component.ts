@@ -23,7 +23,9 @@ export class SearchComponent implements OnInit {
   ngOnInit(){
     this.joinService.list().subscribe(data => {
       this.tutors = data;
+      console.log(data);
     })
+  
   }
 
 }

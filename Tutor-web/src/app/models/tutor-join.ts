@@ -1,9 +1,8 @@
 export class TutorJoin {
-    tutorId!: string;
+    tutor_id!: string;
     firstName!: string;
     lastName!: string;
     intro!: string;
     tutorImg!: string;
-    subjectId!: string;
-    subjectTitle!: string;
+    subjects!: [];
 }

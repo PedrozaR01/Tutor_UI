@@ -25,6 +25,7 @@ export class AppointmentListComponent implements OnInit {
       .subscribe((appointments: Appointment[]) => {
         this.appointments = appointments;
         this.loading = false;
+        console.log(appointments)
       },
       (error: ErrorEvent) => {
         this.errorMsg = error.error.message;

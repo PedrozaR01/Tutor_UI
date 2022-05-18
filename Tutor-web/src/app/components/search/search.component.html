@@ -27,12 +27,12 @@
         </div>
         <div class="tutor-info">
             <div class="tutor-name">
-                <p>{{ tutor.firstName }} {{ tutor.lastName }}</p>
+                <p>{{ tutor.firstName }} {{ tutor.lastName }} </p>
             </div>
             <div class="tutor-description">
                 <p>{{ tutor.intro }}</p>
             </div>
-            <div class="tutor-topic"><a routerLink="/appointment/{{ tutor.tutorId }}">Make an appointment</a>&nbsp;</div>
+            <div class="tutor-topic"><a [routerLink]="['','appointment', tutor?.tutor_id ]">Make an appointment</a>&nbsp;</div>
         </div>
     </div>
 
