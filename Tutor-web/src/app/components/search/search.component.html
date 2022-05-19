@@ -22,14 +22,14 @@
     <div class="tutor" *ngFor="let tutor of tutors | tutorFilter: filter" >
         <div class="tutor-image">
             <img src="{{ tutor.tutorImg }}" 
-            alt="math-stock-image" 
+            alt="tutor image" 
             class="tutor-img">
         </div>
         <div class="tutor-info">
-            <div class="tutor-name">
-                <p>{{ tutor.firstName }} {{ tutor.lastName }} </p>
+            <div class="tutor-name" >
+                <p [routerLink]="['','tutor', tutor?.tutor_id ]">{{ tutor.firstName }} {{ tutor.lastName }} </p>
             </div>
-            <div class="tutor-description">
+            <div class="tutor-description" >
                 <p>{{ tutor.intro }}</p>
             </div>
             <div class="tutor-topic"><a [routerLink]="['','appointment', tutor?.tutor_id ]">Make an appointment</a>&nbsp;</div>

@@ -3,7 +3,7 @@
 <div class="form-container">
 
   <form (submit)="createAppointment()">
-    <h2>Appoitnments with {{ tutor.firstName }}</h2>
+    <h2>Appointments with {{ tutor.firstName }}</h2>
     <mat-form-field>
       <input matInput name="appointmentDate" [ngxMatDatetimePicker]="$any(picker)" placeholder="Choose a date & time" [(ngModel)]="appointmentDate">
       <mat-datepicker-toggle matSuffix [for]="$any(picker)"></mat-datepicker-toggle>

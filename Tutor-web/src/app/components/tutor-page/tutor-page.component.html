@@ -1,0 +1,42 @@
+<div class="tutor">
+    <h2>{{ tutor.firstName }} {{ tutor.lastName }}</h2>
+    <img src="{{ tutor.tutorImg }}" alt="tutor image">
+
+    <div class="tutor-info">
+        <p>Introduction: {{ tutor.intro }}</p>
+        <p>Subjects: {{ tutor.subjects }}</p>
+    </div>
+    <div class="tutor-topic"><a [routerLink]="['','appointment', tutor?.tutor_id ]">Make an appointment</a>&nbsp;</div>
+</div>
+
+<div class="table-container">
+    <h2>Existing appointments</h2>
+      <mat-spinner *ngIf="loading"></mat-spinner>
+      <mat-toolbar *ngIf="successMsgT" color="accent">{{ successMsgT }}</mat-toolbar>
+      <mat-toolbar *ngIf="errorMsgT" color="warn">{{ errorMsgT }}</mat-toolbar>
+    
+      <div *ngIf="!loading && !errorMsg">
+      <table mat-table 
+      [dataSource]="filtAppointments" 
+      class="mat-elevation-z8">
+        <ng-container matColumnDef="appointmentDate">
+          <th mat-header-cell *matHeaderCellDef> Appointment Date </th>
+          <td mat-cell *matCellDef="let appointment"> {{ appointment.appointmentDate | date:'yyyyy/MM/dd hh:mm:ss a' }} </td>
+        </ng-container>
+    
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef> Name </th>
+          <td mat-cell *matCellDef="let appointment"> {{ appointment.name }} </td>
+        </ng-container>
+    
+        <ng-container matColumnDef="email">
+          <th mat-header-cell *matHeaderCellDef> Email </th>
+          <td mat-cell *matCellDef="let appointment"> {{ appointment.email }} </td>
+        </ng-container>
+    
+        <tr mat-header-row *matHeaderRowDef="columns"></tr>
+      <tr mat-row *matRowDef="let appointments; columns: columns"></tr>
+      </table>
+      </div>
+    
+    </div>

@@ -1,5 +1,4 @@
 import { MAT_DATE_FORMATS } from '@angular/material/core';
-import { NgxMatDateFormats, NGX_MAT_DATE_FORMATS } from '@angular-material-components/datetime-picker';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Component, Input, OnInit } from '@angular/core';
 import { Appointment } from 'src/app/models/Appointment';
@@ -32,7 +31,7 @@ export class AppointmentComponent implements OnInit {
 @Input() tutor: TutorJoin = {
   tutor_id: '', firstName: '', lastName: '', intro: '', tutorImg: '', subjects: []}
   
-public successMsg!: string;
+  public successMsg!: string;
   public errorMsg!: string;
   appointment: Appointment;
   appointmentDate!: string;
@@ -48,7 +47,6 @@ public successMsg!: string;
     private appointmentService: AppointmentService,
     private joinService: JoinService,
     private route: ActivatedRoute,
-    private router: Router
     ) {
       this.appointment = new Appointment();
      }
@@ -60,7 +58,6 @@ public successMsg!: string;
       this.appointments = appointments;
       this.loading = false;
       this.tutorid = Number(this.tutor.tutor_id);
-    console.log(typeof(this.appointments));
     this.filtAppointments = this.appointments.filter((appoint) =>{
       return appoint.tutorId == this.tutorid;
     });
@@ -78,7 +75,6 @@ public successMsg!: string;
       this.tutor = tutor;
       console.log( this.tutor );
     });
-    
   }
 
   createAppointment() {
@@ -92,6 +88,7 @@ public successMsg!: string;
     this.appointment.appointmentDate = mySqlDate;
     this.appointment.tutorId = Number(this.tutor.tutor_id);
 
+    
     this.appointmentService.createAppointment(this.appointment)
       .subscribe((createdAppointment: Appointment) => {
         this.appointmentDate = '';
