@@ -40,8 +40,8 @@ public successMsg!: string;
   public loading = true;
   public errorMsgT!: string;
   public successMsgT!: string;
-  public appointments!: Appointment[];
-  public filtAppointments!: Appointment[];
+  public appointments: Appointment[] = [];
+  public filtAppointments: Appointment[] = [];
   public columns = ['appointmentDate', 'name', 'email', 'cancel'];
 
   constructor(
@@ -59,15 +59,17 @@ public successMsg!: string;
     .subscribe((appointments: Appointment[]) => {
       this.appointments = appointments;
       this.loading = false;
+      this.tutorid = Number(this.tutor.tutor_id);
+    console.log(typeof(this.appointments));
+    this.filtAppointments = this.appointments.filter((appoint) =>{
+      return appoint.tutorId == this.tutorid;
+    });
+    console.log(this.filtAppointments);
     },
     (error: ErrorEvent) => {
       this.errorMsg = error.error.message;
       this.loading = false;
     });
-    this.tutorid = Number(this.tutor.tutor_id);
-    console.log(typeof(this.appointments));
-    this.filtAppointments = this.appointments.filter(appointment => appointment.tutorId == this.tutorid );
-    console.log(this.filtAppointments);
   }
 
   getTutor(): void{
