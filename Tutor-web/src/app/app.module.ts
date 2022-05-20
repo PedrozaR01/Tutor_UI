@@ -35,6 +35,7 @@ import {
   NgxMatTimepickerModule,
   NGX_MAT_DATE_FORMATS
 } from '@angular-material-components/datetime-picker';
+import { TutorPageComponent } from './components/tutor-page/tutor-page.component';
 
 
 
@@ -47,7 +48,8 @@ import {
     HomeComponent,
     TutorPipe,
     AppointmentListComponent,
-    AppointmentComponent
+    AppointmentComponent,
+    TutorPageComponent
   ],
   imports: [
     BrowserModule,
