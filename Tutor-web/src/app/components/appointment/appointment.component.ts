@@ -81,6 +81,7 @@ export class AppointmentComponent implements OnInit {
     this.successMsg = '';
     this.errorMsg = '';
     const date = new Date(this.appointmentDate);
+    //for some reason, the datetime picker adds 6 hours to the current one so it is required to substract 6 hours
     date.setHours(date.getHours()-6);
     const isoString: string = date.toISOString();
     const isoDate = new Date(isoString);
@@ -88,7 +89,6 @@ export class AppointmentComponent implements OnInit {
     this.appointment.appointmentDate = mySqlDate;
     this.appointment.tutorId = Number(this.tutor.tutor_id);
 
-    
     this.appointmentService.createAppointment(this.appointment)
       .subscribe((createdAppointment: Appointment) => {
         this.appointmentDate = '';
