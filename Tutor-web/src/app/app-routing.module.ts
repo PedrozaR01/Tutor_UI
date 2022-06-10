@@ -1,17 +1,19 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
-import { SignupComponent } from './components/signup/signup.component';
 import { SearchComponent } from './components/search/search.component';
 import { HomeComponent } from './components/home/home.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppointmentComponent } from './components/appointment/appointment.component';
 import { AppointmentListComponent } from './components/appointment-list/appointment-list/appointment-list.component';
 import { TutorPageComponent } from './components/tutor-page/tutor-page.component';
+import { RegisterComponent } from './auth/register.component';
+import { LoginComponent } from './auth/login.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent},
-  { path: 'signup', component: SignupComponent },
+  { path: 'signup', component: RegisterComponent },
+  { path: 'login', component: LoginComponent},
   { path: 'search', component: SearchComponent},
   { path: 'appointment/:id', component: AppointmentComponent},
   { path: 'appointment-list', component: AppointmentListComponent},

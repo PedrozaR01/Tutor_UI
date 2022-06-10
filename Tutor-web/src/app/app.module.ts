@@ -36,6 +36,8 @@ import {
   NGX_MAT_DATE_FORMATS
 } from '@angular-material-components/datetime-picker';
 import { TutorPageComponent } from './components/tutor-page/tutor-page.component';
+import { LoginComponent } from './auth/login.component';
+import { RegisterComponent } from './auth/register.component';
 
 
 
@@ -49,7 +51,9 @@ import { TutorPageComponent } from './components/tutor-page/tutor-page.component
     TutorPipe,
     AppointmentListComponent,
     AppointmentComponent,
-    TutorPageComponent
+    TutorPageComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
