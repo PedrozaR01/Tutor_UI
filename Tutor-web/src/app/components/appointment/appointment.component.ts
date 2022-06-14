@@ -6,6 +6,7 @@ import { AppointmentService } from 'src/app/services/appointment.service';
 import { TutorJoin } from 'src/app/models/tutor-join';
 import { JoinService } from 'src/app/services/join.service';
 import { mergeMap } from 'rxjs';
+import { TokenService } from 'src/app/services/token.service';
 
 export const CUSTOM_DATE_FORMATS = {
   parse: {
@@ -42,17 +43,21 @@ export class AppointmentComponent implements OnInit {
   public appointments: Appointment[] = [];
   public filtAppointments: Appointment[] = [];
   public columns = ['appointmentDate', 'name', 'email', 'cancel'];
+  public isLogged = false;
 
   constructor(
     private appointmentService: AppointmentService,
     private joinService: JoinService,
     private route: ActivatedRoute,
+    private tokenServ: TokenService
     ) {
       this.appointment = new Appointment();
      }
 
   ngOnInit() {
-    this.getTutor();
+    if(this.tokenServ.getToken()){
+      this.isLogged = true;
+      this.getTutor();
     this.appointmentService.getAppointments()
     .subscribe((appointments: Appointment[]) => {
       this.appointments = appointments;
@@ -67,6 +72,10 @@ export class AppointmentComponent implements OnInit {
       this.errorMsg = error.error.message;
       this.loading = false;
     });
+    } else {
+      this.isLogged = false;
+    }
+    
   }
 
   getTutor(): void{

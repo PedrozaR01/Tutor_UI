@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import { TokenService } from 'src/app/services/token.service';
 
 @Component({
   selector: 'app-header',
@@ -9,9 +10,23 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private router: Router) { }
 
-  ngOnInit(): void {
+  isLogged = false;
+
+  constructor(private router: Router,
+    private toeknServ: TokenService) { }
+
+  ngOnInit(){
+    if(this.toeknServ.getToken()){
+      this.isLogged = true;
+    } else {
+      this.isLogged = false;
+    }
+  }
+
+  onLogOut(): void{
+    this.toeknServ.logOut();
+    window.location.reload(); 
   }
 
 }

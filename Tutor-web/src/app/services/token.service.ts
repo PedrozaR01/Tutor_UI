@@ -13,7 +13,7 @@ export class TokenService {
 
   constructor() { }
 
-  public setTokeN(token: string): void {
+  public setToken(token: string): void {
     window.sessionStorage.removeItem(TOKEN_KEY);
     window.sessionStorage.setItem(TOKEN_KEY, token);
   }
@@ -39,7 +39,8 @@ export class TokenService {
   public getAuthorities(): string[]{
     this.roles = [];
     if(sessionStorage.getItem(AUTHORITIES_KEY)){
-      JSON.parse(sessionStorage.getItem(AUTHORITIES_KEY)?? "").array.forEach((authority: { authority: string; }) => {
+      JSON.parse(sessionStorage.getItem(AUTHORITIES_KEY) ?? "").array.forEach(
+        (authority: { authority: string; }) => {
         this.roles.push(authority.authority); 
       });
     }

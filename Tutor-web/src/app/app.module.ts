@@ -38,6 +38,7 @@ import {
 import { TutorPageComponent } from './components/tutor-page/tutor-page.component';
 import { LoginComponent } from './auth/login.component';
 import { RegisterComponent } from './auth/register.component';
+import { interceptorProvider } from './interceptor/tutor-interceptor.service';
 
 
 
@@ -77,7 +78,8 @@ import { RegisterComponent } from './auth/register.component';
     NgxMatTimepickerModule,
     NgxMatNativeDateModule,
   ],
-  providers: [JoinService],
+  providers: [JoinService,
+  interceptorProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

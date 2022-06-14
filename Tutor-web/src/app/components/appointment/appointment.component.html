@@ -1,3 +1,8 @@
+<div class="text-center" *ngIf="!isLogged; else loggedIn">
+  <h2>You need to log in first</h2>
+</div>
+
+<ng-template #loggedIn>
 <mat-toolbar *ngIf="successMsg" color="accent">{{ successMsg }}</mat-toolbar>
 <mat-toolbar *ngIf="errorMsg" color="warn">{{ errorMsg }}</mat-toolbar>
 <div class="form-container">
@@ -56,3 +61,4 @@
   </div>
 
 </div>
+</ng-template>
