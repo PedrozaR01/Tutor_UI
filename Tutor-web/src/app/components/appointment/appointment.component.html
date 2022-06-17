@@ -10,7 +10,8 @@
   <form (submit)="createAppointment()">
     <h2>Appointments with {{ tutor.firstName }}</h2>
     <mat-form-field>
-      <input matInput name="appointmentDate" [ngxMatDatetimePicker]="$any(picker)" placeholder="Choose a date & time" [(ngModel)]="appointmentDate">
+      <input matInput name="appointmentDate" > 
+      [matDatepicker]="$any(picker)" placeholder="Choose a date & time" [(ngModel)]="appointmentDate">
       <mat-datepicker-toggle matSuffix [for]="$any(picker)"></mat-datepicker-toggle>
       <ngx-mat-datetime-picker #picker [enableMeridian]="true"></ngx-mat-datetime-picker>
     </mat-form-field>
@@ -38,16 +39,6 @@
     <ng-container matColumnDef="appointmentDate">
       <th mat-header-cell *matHeaderCellDef> Appointment Date </th>
       <td mat-cell *matCellDef="let appointment"> {{ appointment.appointmentDate | date:'yyyyy/MM/dd hh:mm:ss a' }} </td>
-    </ng-container>
-
-    <ng-container matColumnDef="name">
-      <th mat-header-cell *matHeaderCellDef> Name </th>
-      <td mat-cell *matCellDef="let appointment"> {{ appointment.name }} </td>
-    </ng-container>
-
-    <ng-container matColumnDef="email">
-      <th mat-header-cell *matHeaderCellDef> Email </th>
-      <td mat-cell *matCellDef="let appointment"> {{ appointment.email }} </td>
     </ng-container>
 
     <ng-container matColumnDef="cancel">

@@ -42,8 +42,15 @@ export class AppointmentComponent implements OnInit {
   public successMsgT!: string;
   public appointments: Appointment[] = [];
   public filtAppointments: Appointment[] = [];
-  public columns = ['appointmentDate', 'name', 'email', 'cancel'];
+  public columns = ['appointmentDate', 'cancel'];
   public isLogged = false;
+
+  myFilter (d: Date): boolean{
+    const day = d.getDay();
+    // Prevent Saturday and Sunday from being selected.
+    const filtDays: boolean = day !== 0 && day !== 6;
+    return filtDays;
+  }
 
   constructor(
     private appointmentService: AppointmentService,

@@ -9,15 +9,17 @@ import { AppointmentListComponent } from './components/appointment-list/appointm
 import { TutorPageComponent } from './components/tutor-page/tutor-page.component';
 import { RegisterComponent } from './auth/register.component';
 import { LoginComponent } from './auth/login.component';
+import { TutorGuardService as Guard } from './guards/tutor-guard.service';
+
 
 const routes: Routes = [
-  { path: '', component: HomeComponent},
+  { path: '', component: HomeComponent },
   { path: 'signup', component: RegisterComponent },
-  { path: 'login', component: LoginComponent},
-  { path: 'search', component: SearchComponent},
-  { path: 'appointment/:id', component: AppointmentComponent},
-  { path: 'appointment-list', component: AppointmentListComponent},
-  { path: 'tutor/:id', component: TutorPageComponent}
+  { path: 'login', component: LoginComponent },
+  { path: 'search', component: SearchComponent },
+  { path: 'appointment/:id', component: AppointmentComponent, canActivate: [Guard], data: { expectedRole: ['tutor', 'student'] } },
+  { path: 'appointment-list', component: AppointmentListComponent },
+  { path: 'tutor/:id', component: TutorPageComponent, canActivate: [Guard], data: { expectedRole: ['tutor', 'student'] }  }
 ];
 
 @NgModule({

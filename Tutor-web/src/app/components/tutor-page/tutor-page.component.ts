@@ -23,7 +23,7 @@ export class TutorPageComponent implements OnInit {
     public successMsgT!: string;
     public appointments: Appointment[] = [];
     public filtAppointments: Appointment[] = [];
-    public columns = ['appointmentDate', 'name', 'email'];
+    public columns = ['appointmentDate'];
 
     constructor(
       private appointmentService: AppointmentService,
