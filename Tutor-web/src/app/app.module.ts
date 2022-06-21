@@ -39,6 +39,8 @@ import { SignupComponent } from './components/signup/signup.component';
 import { SearchComponent } from './components/search/search.component';
 import { RegisterComponent } from './auth/register.component';
 import { interceptorProvider } from './interceptor/tutor-interceptor.service';
+import { UserProfileComponent } from './components/user-profile/user-profile.component';
+import { CreateTutorComponent } from './components/create-tutor/create-tutor.component';
 
 
 
@@ -54,7 +56,9 @@ import { interceptorProvider } from './interceptor/tutor-interceptor.service';
     AppointmentComponent,
     TutorPageComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    UserProfileComponent,
+    CreateTutorComponent
   ],
   imports: [
     BrowserModule,

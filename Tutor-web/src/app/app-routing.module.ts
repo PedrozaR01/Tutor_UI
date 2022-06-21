@@ -10,6 +10,8 @@ import { TutorPageComponent } from './components/tutor-page/tutor-page.component
 import { RegisterComponent } from './auth/register.component';
 import { LoginComponent } from './auth/login.component';
 import { TutorGuardService as Guard } from './guards/tutor-guard.service';
+import { UserProfileComponent } from './components/user-profile/user-profile.component';
+import { CreateTutorComponent } from './components/create-tutor/create-tutor.component';
 
 
 const routes: Routes = [
@@ -19,7 +21,9 @@ const routes: Routes = [
   { path: 'search', component: SearchComponent },
   { path: 'appointment/:id', component: AppointmentComponent, canActivate: [Guard], data: { expectedRole: ['tutor', 'student'] } },
   { path: 'appointment-list', component: AppointmentListComponent },
-  { path: 'tutor/:id', component: TutorPageComponent, canActivate: [Guard], data: { expectedRole: ['tutor', 'student'] }  }
+  { path: 'tutor/:id', component: TutorPageComponent, canActivate: [Guard], data: { expectedRole: ['tutor', 'student'] }  },
+  { path: 'user', component: UserProfileComponent, canActivate: [Guard], data: {expectedRole: ['student']}},
+  { path: 'newtutor', component: CreateTutorComponent, canActivate: [Guard], data: {expectedRole: ['admin', 'tutor']}}
 ];
 
 @NgModule({

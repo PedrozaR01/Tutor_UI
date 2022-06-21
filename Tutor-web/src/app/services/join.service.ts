@@ -19,4 +19,8 @@ export class JoinService {
    get(id: string): Observable<any> {
     return this.http.get(`${this.TutorURL}/${id}`);
   }
+
+  post(tutor: TutorJoin): Observable<any> {
+    return this.http.post(this.TutorURL, tutor);
+  }
 }

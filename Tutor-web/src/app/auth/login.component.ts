@@ -56,6 +56,7 @@ export class LoginComponent implements OnInit {
           timeOut: 3000, positionClass: 'toast-top-center'
         });
         this.router.navigate(['/']);
+        window.location.reload();
         
       }, err =>{
         this.isLogged = false;
@@ -64,4 +65,4 @@ export class LoginComponent implements OnInit {
     );
   }
 
-}
+} 

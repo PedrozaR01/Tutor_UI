@@ -10,7 +10,7 @@
   <form (submit)="createAppointment()">
     <h2>Appointments with {{ tutor.firstName }}</h2>
     <mat-form-field>
-      <input matInput name="appointmentDate" > 
+      <input matInput name="appointmentDate" 
       [matDatepicker]="$any(picker)" placeholder="Choose a date & time" [(ngModel)]="appointmentDate">
       <mat-datepicker-toggle matSuffix [for]="$any(picker)"></mat-datepicker-toggle>
       <ngx-mat-datetime-picker #picker [enableMeridian]="true"></ngx-mat-datetime-picker>
