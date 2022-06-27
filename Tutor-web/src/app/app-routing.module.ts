@@ -22,7 +22,7 @@ const routes: Routes = [
   { path: 'appointment/:id', component: AppointmentComponent, canActivate: [Guard], data: { expectedRole: ['tutor', 'student'] } },
   { path: 'appointment-list', component: AppointmentListComponent },
   { path: 'tutor/:id', component: TutorPageComponent, canActivate: [Guard], data: { expectedRole: ['tutor', 'student'] }  },
-  { path: 'user', component: UserProfileComponent, canActivate: [Guard], data: {expectedRole: ['student']}},
+  { path: 'user', component: UserProfileComponent, canActivate: [Guard], data: {expectedRole: ['student', 'tutor']}},
   { path: 'newtutor', component: CreateTutorComponent, canActivate: [Guard], data: {expectedRole: ['admin', 'tutor']}}
 ];
 

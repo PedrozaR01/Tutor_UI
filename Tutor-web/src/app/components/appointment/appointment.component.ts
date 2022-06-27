@@ -43,6 +43,9 @@ export class AppointmentComponent implements OnInit {
   public appointments: Appointment[] = [];
   public filtAppointments: Appointment[] = [];
   public columns = ['appointmentDate', 'cancel'];
+  public stepHour = 1;
+  public stepMinute = 15;
+  public stepSecond = 1;
   public isLogged = false;
 
   myFilter (d: Date): boolean{
@@ -104,6 +107,7 @@ export class AppointmentComponent implements OnInit {
     const mySqlDate = isoDate.toJSON().slice(0, 19).replace('T', ' ');
     this.appointment.appointmentDate = mySqlDate;
     this.appointment.tutorId = Number(this.tutor.tutor_id);
+    this.appointment.createdBy = this.tokenServ.getUserName();
 
     this.appointmentService.createAppointment(this.appointment)
       .subscribe((createdAppointment: Appointment) => {

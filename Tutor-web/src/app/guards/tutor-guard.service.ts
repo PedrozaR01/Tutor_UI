@@ -19,12 +19,9 @@ export class TutorGuardService implements CanActivate {
     const roles = this.tokenServ.getAuthorities();
     this.realRole = 'student';
     roles.forEach(role =>{
-      if(role === 'ROLE_TUTOR'){
+      if(role === 'ROLE_TUTOR' || role === 'ROLE_ADMIN'){
         this.realRole = 'tutor';
-      }
-      if(role === 'ROLE_ADMIN'){
-        this.realRole = 'admin';
-      }
+      } 
     });
     console.log(expectedRole.indexOf(this.realRole));
     console.log(expectedRole[0]);

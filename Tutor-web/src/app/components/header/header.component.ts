@@ -11,7 +11,9 @@ import { TokenService } from 'src/app/services/token.service';
 export class HeaderComponent implements OnInit {
 
 
+  roles: string[] = [];
   isLogged = false;
+  hasPermi = false;
 
   constructor(private router: Router,
     private toeknServ: TokenService) { }
@@ -22,6 +24,19 @@ export class HeaderComponent implements OnInit {
     } else {
       this.isLogged = false;
     }
+    this.roles = this.toeknServ.getAuthorities();
+    this.roles.forEach(role => {
+      if(role === 'ROLE_TUTOR'){
+        this.hasPermi = true;
+        console.log("true");
+      } else if (role === 'ROLE_ADMIN'){
+        this.hasPermi = true;
+        console.log("true");
+      } else {
+        //this.hasPermi = false;
+        console.log("false");
+      }
+    });
   }
 
   onLogOut(): void{

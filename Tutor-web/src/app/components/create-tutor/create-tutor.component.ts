@@ -15,7 +15,8 @@ export class CreateTutorComponent implements OnInit {
   tutorLastName!: string;
   tutorIntro!: string;
   tutorImg!: string;
-  subjects!: [];
+  subjects!: string;
+  tutorSubj: string[] = [];
 
   constructor(
     private tutorServ: JoinService,
@@ -31,7 +32,9 @@ export class CreateTutorComponent implements OnInit {
     this.newTutor.lastName = this.tutorLastName;
     this.newTutor.intro = this.tutorIntro;
     this.newTutor.tutorImg = this.tutorImg;
-    this.newTutor.subjects = this.subjects;
+    this.tutorSubj.push(this.subjects);
+    this.newTutor.subjects = this.tutorSubj;
+    console.log(this.newTutor);
     this.tutorServ.post(this.newTutor).subscribe( 
       data => {
         this.toastr.success('Tutor created succesfully', 'OK', {

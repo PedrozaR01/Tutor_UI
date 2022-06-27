@@ -52,11 +52,12 @@ export class LoginComponent implements OnInit {
         this.tokenService.setUserName(data.userName);
         this.tokenService.setAuthorities(data.authorities);
         this.roles = data.authorities;
+        window.location.reload();
+        
+        this.router.navigate(['/']);
         this.toastr.success('Welcome ' + data.userName, 'OK', {
           timeOut: 3000, positionClass: 'toast-top-center'
         });
-        this.router.navigate(['/']);
-        window.location.reload();
         
       }, err =>{
         this.isLogged = false;
