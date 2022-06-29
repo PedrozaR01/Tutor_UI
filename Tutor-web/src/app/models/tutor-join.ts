@@ -4,5 +4,6 @@ export class TutorJoin {
     lastName!: string;
     intro!: string;
     tutorImg!: string;
+    createdBy!: string;
     subjects!: string[];
 }

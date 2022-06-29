@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { TutorJoin } from 'src/app/models/tutor-join';
 import { JoinService } from 'src/app/services/join.service';
+import { TokenService } from 'src/app/services/token.service';
 
 @Component({
   selector: 'app-create-tutor',
@@ -15,12 +16,14 @@ export class CreateTutorComponent implements OnInit {
   tutorLastName!: string;
   tutorIntro!: string;
   tutorImg!: string;
+  createdBy!: string;
   subjects!: string;
   tutorSubj: string[] = [];
 
   constructor(
     private tutorServ: JoinService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private tokenServ: TokenService
   ) { }
 
   ngOnInit(): void {
@@ -34,7 +37,11 @@ export class CreateTutorComponent implements OnInit {
     this.newTutor.tutorImg = this.tutorImg;
     this.tutorSubj.push(this.subjects);
     this.newTutor.subjects = this.tutorSubj;
-    console.log(this.newTutor);
+
+    this.createdBy = this.tokenServ.getUserName();
+
+    this.newTutor.createdBy = this.createdBy;
+
     this.tutorServ.post(this.newTutor).subscribe( 
       data => {
         this.toastr.success('Tutor created succesfully', 'OK', {

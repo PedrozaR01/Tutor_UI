@@ -12,7 +12,7 @@ import { AppointmentService } from 'src/app/services/appointment.service';
 })
 export class TutorPageComponent implements OnInit {
   @Input() tutor: TutorJoin = {
-    tutor_id: '', firstName: '', lastName: '', intro: '', tutorImg: '', subjects: []}
+    tutor_id: '', firstName: '', lastName: '', intro: '', tutorImg: '', createdBy: '', subjects: []}
     
     public successMsg!: string;
     public errorMsg!: string;

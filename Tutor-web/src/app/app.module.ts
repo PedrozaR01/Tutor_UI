@@ -41,6 +41,7 @@ import { RegisterComponent } from './auth/register.component';
 import { interceptorProvider } from './interceptor/tutor-interceptor.service';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { CreateTutorComponent } from './components/create-tutor/create-tutor.component';
+import { CreateSubjectComponent } from './components/create-subject/create-subject.component';
 
 
 
@@ -58,7 +59,8 @@ import { CreateTutorComponent } from './components/create-tutor/create-tutor.com
     LoginComponent,
     RegisterComponent,
     UserProfileComponent,
-    CreateTutorComponent
+    CreateTutorComponent,
+    CreateSubjectComponent
   ],
   imports: [
     BrowserModule,

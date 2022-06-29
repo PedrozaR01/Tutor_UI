@@ -30,7 +30,7 @@ export const CUSTOM_DATE_FORMATS = {
 })
 export class AppointmentComponent implements OnInit {
 @Input() tutor: TutorJoin = {
-  tutor_id: '', firstName: '', lastName: '', intro: '', tutorImg: '', subjects: []}
+  tutor_id: '', firstName: '', lastName: '', intro: '', tutorImg: '', createdBy: '', subjects: []}
   
   public successMsg!: string;
   public errorMsg!: string;

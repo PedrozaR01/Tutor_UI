@@ -2,14 +2,7 @@
     <mat-form-field>
         <mat-label>Select subject</mat-label>
         <mat-select panelClass="sort-select" [(ngModel)]="filter">
-            <mat-option value="Math">Math </mat-option>
-            <mat-option value="History">History </mat-option>
-            <mat-option value="Music">Music </mat-option>
-            <mat-option value="Science">Science </mat-option>
-            <mat-option value="Programming">Programming </mat-option>
-            <mat-option value="Physiotherapy">Physiotherapy </mat-option>
-            <mat-option value="AI">AI </mat-option>
-            
+            <mat-option *ngFor="let subject of subjects" value="{{ subject.subjectTitle }}">{{ subject.subjectTitle }}</mat-option>
         
         </mat-select>
     

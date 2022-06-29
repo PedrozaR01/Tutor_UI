@@ -12,6 +12,7 @@ import { LoginComponent } from './auth/login.component';
 import { TutorGuardService as Guard } from './guards/tutor-guard.service';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { CreateTutorComponent } from './components/create-tutor/create-tutor.component';
+import { CreateSubjectComponent } from './components/create-subject/create-subject.component';
 
 
 const routes: Routes = [
@@ -23,7 +24,8 @@ const routes: Routes = [
   { path: 'appointment-list', component: AppointmentListComponent },
   { path: 'tutor/:id', component: TutorPageComponent, canActivate: [Guard], data: { expectedRole: ['tutor', 'student'] }  },
   { path: 'user', component: UserProfileComponent, canActivate: [Guard], data: {expectedRole: ['student', 'tutor']}},
-  { path: 'newtutor', component: CreateTutorComponent, canActivate: [Guard], data: {expectedRole: ['admin', 'tutor']}}
+  { path: 'newtutor', component: CreateTutorComponent, canActivate: [Guard], data: {expectedRole: ['admin', 'tutor']}},
+  { path: 'newsubject', component: CreateSubjectComponent, canActivate: [Guard], data: {expectedRole: ['admin', 'tutor']}}
 ];
 
 @NgModule({

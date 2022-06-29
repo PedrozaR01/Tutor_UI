@@ -1,0 +1,38 @@
+<div class="container d-flex justify-content center">
+  
+  <div class="table-container">
+    <table mat-table 
+    [dataSource]="allSubjects"
+    class="mat-elevation-z8">
+  
+    <ng-container matColumnDef="subjects">
+      <th mat-header-cell *matHeaderCellDef>Subjects</th>
+      <td mat-cell *matCellDef="let allSubjects"> {{ allSubjects.subjectTitle }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="delete">
+      <th mat.header-cell *matHeaderCellDef>Delete</th>
+      <td mat-cell *matCellDef="let allSubjects"><button (click)="onDelete(allSubjects.subjectId)" mat-raised-button color="warn">Delete</button></td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="columns"></tr>
+    <tr mat-row *matRowDef="let allSubjects; columns: columns"></tr>
+  </table>
+  </div>
+  
+  <div class="container">
+  <form #f="ngForm" (ngSubmit)="onCreate()">
+        <div class="form-group">
+            <label for="subjectTitle">Subject Name:</label>
+            <input type="text" name="subjectTile" class="form-control"
+            [(ngModel)]="subjectTitle" required>
+        </div>
+
+        <div class="form-group">
+            <button class="btn btn-outline-success btn-block" [disabled]="!f.valid">
+              Create Subject
+            </button>
+          </div>
+    </form>
+  </div>
+</div>

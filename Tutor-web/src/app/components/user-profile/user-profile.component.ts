@@ -47,6 +47,11 @@ export class UserProfileComponent implements OnInit {
     this.tutorServ.list().subscribe(
       (tutor: TutorJoin[]) => {
         this.tutors = tutor;
+        this.filtTutors = this.tutors.filter(
+          (tutor) => {
+            return tutor.createdBy == this.userName;
+          }
+        )
       }
     );
     console.log(this.tutors);
