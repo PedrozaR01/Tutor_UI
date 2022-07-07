@@ -19,6 +19,7 @@ export class UserProfileComponent implements OnInit {
   public tutors: TutorJoin[] = [];
   public filtTutors: TutorJoin[] = [];
   public columns = ['appointmentDate', 'tutorId'];
+  public tColumns = ['tutorName', 'subjects']
   public successMsg!: string;
   public errorMsg!: string;
   public loading = true;
@@ -52,9 +53,11 @@ export class UserProfileComponent implements OnInit {
             return tutor.createdBy == this.userName;
           }
         )
+        console.log("Filt " + this.filtTutors);
       }
     );
     console.log(this.tutors);
+    
   }
 
 }

@@ -29,10 +29,13 @@
                         [(ngModel)]="tutorImg" required>
                       </div>
     
-                      <div class="form-group">
-                        <label for="subjects">Subjects</label>
-                        <input type="text" name="subjects" class="form-control"
-                        [(ngModel)]="subjects" required>
+                      <div class="form-group"> <!---->
+                        <label for="selectedSubjects">Select one or more subjects (Multiple choices with shift key):</label>
+                        <select multiple class="form-control" name="selectedSubjects" [ngModel]="selectedSubjects">
+                          <option *ngFor="let subject of subjects" (click)="addToArray(subject.subjectTitle)">
+                            {{ subject.subjectTitle }}
+                          </option>
+                        </select>
                       </div>
     
                       <div class="form-group">
